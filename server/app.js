@@ -21,7 +21,7 @@ const db = require('./helpers/db.js')();
 const articles = require('./routes/articles')
 
 //route
-app.use('/book',articles)
+app.use('/post',articles)
 
 app.get('/',(req,res)=>{
     return res.json({message: 'Hello'})
