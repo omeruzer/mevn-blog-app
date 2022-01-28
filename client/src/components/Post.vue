@@ -6,7 +6,7 @@
                 <h5 class="card-title">{{post.title}}</h5>
                 <p class="card-text">{{post.content}}</p>
                 <p class="card-text author">{{post.author}}</p>
-                <a href="#" class="btn btn-primary">Read</a>
+                <a @click="goToDetail" class="btn btn-primary">Read</a>
             </div>
         </div>
     </div>
@@ -16,7 +16,12 @@
     export default {
         props:[
             'post'
-        ]
+        ],
+        methods: {
+            goToDetail(){
+                this.$router.push(`/${this.post.slug}`)
+            }
+        },
     }
 </script>
 

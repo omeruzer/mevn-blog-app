@@ -23,12 +23,6 @@ const articles = require('./routes/articles')
 //route
 app.use('/post',articles)
 
-app.get('/',(req,res)=>{
-    return res.json({message: 'Hello'})
-})
-
-
-
 app.listen(port,()=>{
     console.log(`Listening to port ${port}`);
 })
