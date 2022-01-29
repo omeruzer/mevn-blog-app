@@ -19,4 +19,7 @@ router.delete('/:slug',ArticleController.blogDelete)
 //update
 router.put('/:slug',ArticleController.blogUpdate)
 
+//sidebar other posts
+router.post('/other',ArticleController.sidebarOtherPost)
+
 module.exports = router

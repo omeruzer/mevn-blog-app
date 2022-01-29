@@ -85,10 +85,22 @@ const blogUpdate = (req,res)=>{
     });
 }
 
+// Sidebar Other Posts
+const sidebarOtherPost = (req,res)=>{
+
+    Articles.find().limit(5).sort({'created_at':-1})
+        .then((result) => {
+            res.json(result)
+        }).catch((err) => {
+            res.json(err)
+        });
+}
+
 module.exports={
     blogAdd,
     blogAll,
     blogSelected,
     blogDelete,
-    blogUpdate
+    blogUpdate,
+    sidebarOtherPost,
 }

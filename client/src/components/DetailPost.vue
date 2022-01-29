@@ -1,65 +1,70 @@
 <template>
-    <div>
-        <div class="post-box">
-            <div class="row">
-                <div class="col-lg-3">
-                    <a @click="goToBack" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Geri</a>
-                </div>
+  <div>
+    <div class="post-box">
+      <div class="row post-detail">
+        <div class="col-lg-12 box">
+          <div class="row titleAndDelete">
+            <div class="trash">
+              <button @click="editPost" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
+              <button @click="removePost" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</button>
             </div>
-            <div class="row post-detail">
-                <div class="col-lg-8 box">
-                    <img class="post-img" src="https://www.dunyaatlasi.com/wp-content/uploads/2018/09/resim-tablo-nasil-okunur.jpg" >
-                    <div class="title">
-                        <h1>{{postDetail[0].title}} </h1>
-                    </div>
-                    <div class="author">
-                        <span>{{postDetail[0].author}}</span>
-                    </div>
-                    <div class="content">
-                        <p>
-                            {{postDetail[0].content}}
-                        </p>
-                    </div>
-                </div>
+            <div class="">
+              <div class="title">
+                <h1>{{ postDetail[0].title }}</h1>
+              </div>
+              <div class="author">
+                <span>{{ postDetail[0].author }}</span>
+              </div>
             </div>
+          </div>
+          <hr />
+          <br />
+          <img class="post-img" src="https://via.placeholder.com/1000" />
+          <br /><br />
+          <hr />
+          <br />
+          <div class="content">
+            <p>
+              {{ postDetail[0].content }}
+            </p>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        props:[
-            'postDetail'
-        ],
-        methods: {
-            goToBack(){
-                this.$router.push('/')
-            }
-        },
+  import axios from 'axios'
+export default {
+  props: ["postDetail"],
+  methods: {
+    async removePost(){ 
+      await axios.delete(`http://localhost:3000/post/${this.postDetail[0].slug}`)
+      this.$router.push('/')
+    },
+    editPost(){
+      this.$router.push(`/edit/${this.postDetail[0].slug}`) 
     }
+  },
+};
 </script>
 
 <style scoped>
-.post-img{
-    width: 100%;
-    height: 450px;
-    
+.post-img {
+  width: 100%;
+  height: 450px;
 }
 
-.post-detail{
-    margin-top: 20px;
+.author span {
+  color: #777777;
 }
-
-.post-box{
-    padding: 20px;
+.titleAndDelete {
+  display: flex;
+  justify-content: space-between;
 }
-
-.box{
-    margin: auto;
+.trash button{
+  float: right;
+  margin-right:10px;
 }
-
-.author span{
-    color: #777777;
-}
-
 </style>

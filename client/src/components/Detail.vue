@@ -1,35 +1,64 @@
 <template>
   <div class="container">
-    <DetailPost :postDetail='postDetail'/>
+    <div class="row page-box">
+      <div class="col-lg-9">
+        <DetailPost :postDetail="postDetail" />
+      </div>
+      <div class="col-lg-3">
+        <Sidebar />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import DetailPost from "./DetailPost.vue";
-import axios from 'axios'
+import Sidebar from "./Sidebar.vue";
+import axios from "axios";
 
 export default {
-    data() {
-        return {
-            postDetail:[]
-        }
+  methods: {
+    goToBack() {
+      this.$router.push("/");
     },
+    fetchData() {
+      const slug = this.$route.params.slug;
+
+      axios
+        .get(`http://localhost:3000/post/${slug}`)
+        .then((result) => {
+          this.postDetail = result.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+  data() {
+    return {
+      postDetail: [],
+    };
+  },
+  watch: {
+      '$route' : 'fetchData'
+  },
   components: {
     DetailPost,
+    Sidebar,
   },
   created() {
-    const slug = this.$route.params.slug
-    
-    axios.get(`http://localhost:3000/post/${slug}`)
-        .then((result) => {
-            this.postDetail = result.data
-        }).catch((err) => {
-            console.log(err);        
-        });
-        
+      this.fetchData()
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.page-box {
+  padding: 20px;
+}
+
+.back {
+  padding-top: 30px;
+  padding-left: 30px;
+}
 </style>

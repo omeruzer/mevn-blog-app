@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../components/Home.vue'
 import Detail from '../components/Detail.vue'
+import AddPost from '../components/AddPost.vue'
+import UpdatePost from '../components/UpdatePost.vue'
 
 const routes = [
   {
@@ -10,6 +12,14 @@ const routes = [
   {
     path: '/:slug',
     component: Detail
+  },
+  {
+    path: '/add',
+    component: AddPost
+  },
+  {
+    path: '/edit/:slug',
+    component: UpdatePost
   },
 ]
 

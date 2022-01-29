@@ -1,10 +1,10 @@
 <template>
     <div>
         <div class="card" >
-            <img src="https://www.dunyaatlasi.com/wp-content/uploads/2018/09/resim-tablo-nasil-okunur.jpg" class="card-img-top" alt="...">
+            <img src="https://via.placeholder.com/1000" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{post.title}}</h5>
-                <p class="card-text">{{post.content}}</p>
+                <p class="card-text">{{!post.content.length > 200 ? post.content : post.content.slice(0,50)+"..." }}</p>
                 <p class="card-text author">{{post.author}}</p>
                 <a @click="goToDetail" class="btn btn-primary">Read</a>
             </div>

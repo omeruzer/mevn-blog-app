@@ -1,8 +1,11 @@
 <template>
   <div class="head">
+    <Topbar/>   
     <div class="container header">
+        <div class="row">
+        </div>
       <div class="row">
-        <div class="col-lg-3 logo"><h1>MEVN Blog</h1></div>
+        <div class="col-lg-3 logo"><h1><a @click="goToHome">MEVN Blog</a></h1></div>
         <div class="col-lg-6 search">
             <div class="">
                 <input class="search-bar" type="text" placeholder="Searching...">
@@ -11,10 +14,7 @@
         <div class="col-lg-3 account">
             <ul>
                 <li>
-                    <div class="login"><i class="fa fa-user"></i> Login</div>
-                </li>
-                <li>
-                    <div class="register"><i class="fa fa-user-plus"></i> Register</div>
+                    <button @click="addPost" class="addPost"><i class="fa fa-plus"></i> Add Post</button>
                 </li>
             </ul>
         </div>
@@ -24,14 +24,28 @@
 </template>
 
 <script>
+import Topbar from './TopBar.vue'
 export default {
-
+    components:{
+        Topbar
+    },
+    methods: {
+        goToHome(){
+            this.$router.push('/')
+        },
+        addPost(){
+            this.$router.push('/add')
+        }
+    },
 };
 </script>
 
 <style scoped>
 .head{
     background-color: #35858B;
+}
+.logo{
+    cursor: pointer;
 }
 
 .search-bar{
@@ -56,19 +70,11 @@ export default {
 }
 
 
-.login{
+.addPost{
     background-color: #4FBDBA;
     text-align: center;
     border: 2px solid #072227;
     padding: 5px 10px;
     color: #fff;
-}
-
-.register{
-    background-color: #4FBDBA;
-    text-align: center;
-    border: 2px solid #072227;
-    padding: 5px 10px;
-    color: #fff ;
 }
 </style>
