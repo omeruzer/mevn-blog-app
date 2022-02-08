@@ -10,12 +10,14 @@ const blogAdd = (req,res)=>{
     const slug     =   slugify(req.body.title)
     const author    =   req.body.author
     const content   =   req.body.content
+    //const uploadImg =   (Math.round(Math.random()*1000000)).toString()+"-"+req.file.originalname
 
     const newBlog = new Articles({
         title:title,
         slug:slug,
         author:author,
         content:content,
+        //img:uploadImg
     })
 
     newBlog.save()
@@ -29,7 +31,7 @@ const blogAdd = (req,res)=>{
 
 //get all blog
 const blogAll = (req,res)=>{
-    Articles.find()
+    Articles.find().sort({_id: -1})
         .then((result) => {
             res.json(result)
         }).catch((err) => {
@@ -96,11 +98,25 @@ const sidebarOtherPost = (req,res)=>{
         });
 }
 
+// Blog Delete All
+const blogDeleteAll = (req,res)=>{
+
+    const deleteBlog = Articles.find();
+    
+    deleteBlog.findOneAndDelete()
+        .then((result) => {
+            res.json(result)
+        }).catch((err) => {
+            res.json(err)
+        });
+}
+
 module.exports={
     blogAdd,
     blogAll,
     blogSelected,
     blogDelete,
     blogUpdate,
+    blogDeleteAll,
     sidebarOtherPost,
 }

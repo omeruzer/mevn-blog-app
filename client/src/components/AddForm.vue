@@ -3,8 +3,12 @@
     <div class="container addform">
       <div class="row">
         <div class="col-lg-6">
-          <form @submit="addPost" action="">
-            <div class="form">
+          <form @submit.prevent="addPost" action="" enctype="multipart/form-data"> 
+            <!-- <div class="form">
+              <label for="">Image</label>
+              <input type="file" v-on:change='imageUploads()' class="form-control" name="" id="" />
+            </div> -->
+            <div class="form">  
               <label for="">Title</label>
               <input type="text" v-model="title" class="form-control" name="" id="" />
             </div>
@@ -46,9 +50,8 @@ export default {
             }
             
             await axios.post('http://localhost:3000/post/add',post)
-                .then((result) => {
-                    this.$router.push('/')
-                    console.log(result.data)
+                .then(() => {
+                  this.$router.push('/')
                 }).catch((err) => {
                     console.log(err)
                 });

@@ -19,7 +19,7 @@
           </div>
           <hr />
           <br />
-          <img class="post-img" src="https://via.placeholder.com/1000" />
+          <img class="post-img" src="http://via.placeholder.com/1000" />
           <br /><br />
           <hr />
           <br />
@@ -29,7 +29,7 @@
             </p>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   </div>
 </template>
@@ -39,7 +39,7 @@
 export default {
   props: ["postDetail"],
   methods: {
-    async removePost(){ 
+    async removePost(){
       await axios.delete(`http://localhost:3000/post/${this.postDetail[0].slug}`)
       this.$router.push('/')
     },
@@ -66,5 +66,13 @@ export default {
 .trash button{
   float: right;
   margin-right:10px;
+}
+
+.post-box{
+  scroll-behavior: smooth;
+  overflow:scroll;
+  height:auto;
+    overflow-y: hidden;
+  overflow-x: hidden; 
 }
 </style>

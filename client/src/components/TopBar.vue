@@ -7,9 +7,10 @@
                         <h3>News</h3>
                         <p>Mevn Blog</p>
                         <ul> 
-                            <li><i class="fab fa-facebook"></i></li>
-                            <li><i class="fab fa-instagram"></i></li>
-                            <li><i class="fab fa-youtube"></i></li>
+                            <li><a href=""><i class="fab fa-github fa-lg"></i></a></li>
+                            <li><a href=""><i class="fab fa-facebook fa-lg"></i></a></li>
+                            <li><a href=""><i class="fab fa-instagram fa-lg"></i></a></li>
+                            <li><a href=""><i class="fab fa-youtube fa-lg"></i></a></li>
                         </ul>
                     </div>
                 </nav>

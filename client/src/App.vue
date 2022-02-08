@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div >
     <Header/>
-    <router-view></router-view>
+    <transition mode="out-in">
+      <router-view></router-view>
+    </transition>
     <Footer/>
   </div>
 </template>

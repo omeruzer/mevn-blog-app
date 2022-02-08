@@ -1,10 +1,11 @@
 <template>
   <div class="container">
     <div class="row page-box">
+
       <div class="col-lg-9">
         <DetailPost :postDetail="postDetail" />
       </div>
-      <div class="col-lg-3">
+      <div class="col-lg-3 sidebar">
         <Sidebar />
       </div>
     </div>
@@ -18,9 +19,6 @@ import axios from "axios";
 
 export default {
   methods: {
-    goToBack() {
-      this.$router.push("/");
-    },
     fetchData() {
       const slug = this.$route.params.slug;
 
@@ -40,14 +38,14 @@ export default {
     };
   },
   watch: {
-      '$route' : 'fetchData'
+    $route: "fetchData",
   },
   components: {
     DetailPost,
     Sidebar,
   },
   created() {
-      this.fetchData()
+    this.fetchData();
   },
 };
 </script>

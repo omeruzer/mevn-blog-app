@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="sidebar">
     <div class="col-lg-12">
       <div class="other-posts-text">
         <h2>Other Posts</h2>
@@ -34,10 +34,11 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 
 .other-posts-text{
     margin-bottom: 10px;
+    margin-top: 20px;
 }
+
 </style>

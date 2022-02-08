@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="card" >
-            <img src="https://via.placeholder.com/1000" class="card-img-top" alt="...">
+            <img src="http://via.placeholder.com/1000" class="card-img-top" >
             <div class="card-body">
                 <h5 class="card-title">{{post.title}}</h5>
                 <p class="card-text">{{!post.content.length > 200 ? post.content : post.content.slice(0,50)+"..." }}</p>
