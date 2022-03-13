@@ -5,13 +5,8 @@
         <div class="row">
         </div>
       <div class="row">
-        <div class="col-lg-3 logo"><h1><a @click="goToHome">MEVN Blog</a></h1></div>
-        <div class="col-lg-6 search">
-            <div class="">
-                <input class="search-bar" type="text" placeholder="Searching...">
-            </div>
-        </div>
-        <div class="col-lg-3 account">
+        <div class="col-lg-6 logo"><h1><a @click="goToHome">MEVN Blog</a></h1></div>
+        <div class="col-lg-6 account">
             <ul>
                 <li>
                     <button @click="addPost" class="addPost"><i class="fa fa-plus"></i> Add Post</button>

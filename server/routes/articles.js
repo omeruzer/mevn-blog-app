@@ -1,25 +1,12 @@
 const express = require('express');
 const router = express.Router()
 
-// Multer
-const multer = require('multer');
-
-const storage = multer.diskStorage({
-    destination: (req,file,cb)=>{
-        cb(null,'../client/public/assets')
-    },
-    filename: (req,file,cb)=>{
-        cb(null, Math.round(Math.random()*1000000)+"-"+file.originalname)
-    }
-})
-
-const upload = multer({storage:storage})
 
 //Controller
 const ArticleController = require('../controllers/ArticleController')
 
 //add
-router.post('/add',upload.single('img'),ArticleController.blogAdd)
+router.post('/add',ArticleController.blogAdd)
 
 //get all
 router.get('/all',ArticleController.blogAll)

@@ -10,14 +10,12 @@ const blogAdd = (req,res)=>{
     const slug     =   slugify(req.body.title)
     const author    =   req.body.author
     const content   =   req.body.content
-    //const uploadImg =   (Math.round(Math.random()*1000000)).toString()+"-"+req.file.originalname
 
     const newBlog = new Articles({
         title:title,
         slug:slug,
         author:author,
         content:content,
-        //img:uploadImg
     })
 
     newBlog.save()

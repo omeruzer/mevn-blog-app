@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div class="row page-box">
-
       <div class="col-lg-9">
         <DetailPost :postDetail="postDetail" />
       </div>
@@ -37,6 +36,7 @@ export default {
       postDetail: [],
     };
   },
+
   watch: {
     $route: "fetchData",
   },

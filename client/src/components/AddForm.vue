@@ -18,7 +18,7 @@
             </div>
             <div class="">  
               <label for="">Content</label>
-              <input type="text" v-model="content" class="form-control" name="" id="" />
+              <textarea name="" v-model="content" class="form-control" id="" rows="6"></textarea>
             </div>
             <div class="">
               <input type="submit" class="btn btn-success addbtn" value="Add"/>

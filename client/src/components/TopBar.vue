@@ -56,5 +56,6 @@ i{
 .top-bar ul li{
     list-style: none;
     margin-right: 15px;
+
 }
 </style>

@@ -19,10 +19,6 @@
           </div>
           <hr />
           <br />
-          <img class="post-img" src="http://via.placeholder.com/1000" />
-          <br /><br />
-          <hr />
-          <br />
           <div class="content">
             <p>
               {{ postDetail[0].content }}
@@ -37,6 +33,11 @@
 <script>
   import axios from 'axios'
 export default {
+  data() {
+    return {
+      isLoadimg:false
+    }
+  },
   props: ["postDetail"],
   methods: {
     async removePost(){
@@ -46,6 +47,13 @@ export default {
     editPost(){
       this.$router.push(`/edit/${this.postDetail[0].slug}`) 
     }
+  },
+      mounted() {
+    document.onreadystatechange = () => {
+      if (document.readyState == "complete") {
+        this.isLoadimg = true;
+      }
+    };
   },
 };
 </script>

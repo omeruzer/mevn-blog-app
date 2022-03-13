@@ -1,9 +1,13 @@
 <template>
   <div>
     <div class="container">
-      <div class="row">
-        <div v-for="(post,index) in posts" :key="index" class="col-lg-3 post-item">
-          <Post :post='post' />
+      <div  class="row">
+        <div
+          v-for="(post, index) in posts"
+          :key="index"
+          class="col-lg-3 post-item"
+        >
+          <Post :post="post" :url="url" />
         </div>
       </div>
     </div>
@@ -17,18 +21,20 @@ export default {
   data() {
     return {
       posts: [],
+      url: "",
     };
   },
   components: {
     Post,
   },
   created() {
-    axios.get("http://localhost:3000/post/all")
+    axios
+      .get("http://localhost:3000/post/all")
       .then((result) => {
-        this.posts= result.data
+        this.posts = result.data;
       })
       .catch((err) => {
-          console.log(err);
+        console.log(err);
       });
   },
 };
