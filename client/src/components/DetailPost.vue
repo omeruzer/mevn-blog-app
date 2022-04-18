@@ -33,11 +33,6 @@
 <script>
   import axios from 'axios'
 export default {
-  data() {
-    return {
-      isLoadimg:false
-    }
-  },
   props: ["postDetail"],
   methods: {
     async removePost(){

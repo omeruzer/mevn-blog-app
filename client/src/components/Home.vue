@@ -7,7 +7,7 @@
           :key="index"
           class="col-lg-3 post-item"
         >
-          <Post :post="post" :url="url" />
+          <Post :post="post" />
         </div>
       </div>
     </div>
@@ -21,7 +21,6 @@ export default {
   data() {
     return {
       posts: [],
-      url: "",
     };
   },
   components: {

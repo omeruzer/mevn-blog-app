@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  props: ["post",'url'],
+  props: ["post"],
   methods: {
     goToDetail() {
       this.$router.push(`/${this.post.slug}`);

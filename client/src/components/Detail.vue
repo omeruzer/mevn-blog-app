@@ -21,8 +21,7 @@ export default {
     fetchData() {
       const slug = this.$route.params.slug;
 
-      axios
-        .get(`http://localhost:3000/post/${slug}`)
+      axios.get(`http://localhost:3000/post/${slug}`)
         .then((result) => {
           this.postDetail = result.data;
         })
